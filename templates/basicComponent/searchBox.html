@@ -1,0 +1,39 @@
+
+
+{% block content %}
+
+<div>
+<form class="form-inline mr-auto mt-auto" action="/search/" 
+    method="post" id="searchForm">
+    <div class="md-form my-auto ">
+      <input class="form-control rounded-pill" type="text" name="query" 
+      form="searchForm" onfocus="doCleanUrl()"
+      placeholder="Search for Note" aria-label="Search">
+      <button type="submit" class="btn-outline-info rounded-pill">
+        <i class="fas fa-search " aria-hidden="true"></i>
+      </button>
+    </div>
+  </form>
+</div>
+
+<script>
+
+$(document).ready(function(){
+  $("#listSearch").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+function doCleanUrl(){
+  if(window.location.href.endsWith("/search/")){
+    lasp_position=window.location.href.lastIndexOf('/search');
+    window.location.href = window.location.href.slice(0,lasp_position);
+  }
+}
+
+</script>
+
+{% endblock %}

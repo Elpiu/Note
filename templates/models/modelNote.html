@@ -1,0 +1,92 @@
+{% block content %}
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning rounded-pill" data-toggle="modal"
+    href="#exampleModal{{ns.count}}" data-mdb-target="#exampleModal" >
+    <h5 class="modal-title" id="exampleModalLabel">{{ itemNote.title[:15+4] }}</h5>
+    <!-- [{{ns.count}}]  -->
+  </button>
+  
+  <!-- Modal -->
+  <form action="update/{{ns.count}}/" method="post" id="notaUpdate{{ns.count}}" enctype="multipart/form-data" >
+  <div class="modal top fade text-black-50" id="exampleModal{{ns.count}}" tabindex="-1" 
+    aria-labelledby="exampleModalLabel" aria-hidden="true"  data-mdb-backdrop="true"
+     data-mdb-keyboard="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg w-100 ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title " id="exampleModalLabel">{{ itemNote.title }}</h5>
+        </div>
+        <div class="modal-body">      
+            <textarea form="notaUpdate{{ns.count}}" name="text" id="text" 
+              autofocus="true"  
+               class="form-control overflow-auto" rows="10"
+              onkeydown="noSave('{{ns.count}}')"  >{{ itemNote.text }}</textarea>
+        
+        </div>
+        <div class="modal-body">      
+        </div>
+        <div class="modal-footer">
+          <a href="#myModalConfirmDelete{{ns.count}}" 
+            class="btn btn-danger trigger-btn" data-toggle="modal">Delete</a>
+            
+                    
+          <!-- Modal HTML -->
+          <div id="myModalConfirmDelete{{ns.count}}" class="modal">
+            <div class="modal-dialog modal-confirm">
+              <div class="modal-content">
+                <div class="modal-header flex-column">
+                  <div class="icon-box">
+                  </div>						
+                  <h4 class="modal-title w-100">Sei sicuro?</h4>	
+          
+                </div>
+                <div class="modal-body">
+                  <p>Vuoi davvero cancellare la nota? La cancellazione è inreversibile.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <a type="button" class="btn btn-danger"
+                    href="delete/{{ns.count}}/" >Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+
+          <button type="button" class="btn btn-secondary btn-lg" id="closeButton{{ns.count}}" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary btn-lg" 
+            onclick="goSave('{{ns.count}}')">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </form> 
+<script>
+
+    function noSave(id) {
+        var name = "closeButton"+id;
+        document.getElementById(name).style.background='#000000';
+        document.getElementById(name).innerHTML = "Close no saving";
+    }
+
+    
+    function goSave(id) {
+        var name = "closeButton"+id;
+        var element = document.getElementById(name);
+        element.style.background = null;
+        element.innerHTML = "Close";
+    }
+</script>
+
+
+  {% endblock %}
+    
+    
+    
+    
+    

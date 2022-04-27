@@ -1,0 +1,23 @@
+
+{% block content %}
+
+{% if listaNote %}
+
+    {% set ns = namespace(count = 1) %}
+  
+
+    {% for itemNote in listaNote %}
+        <div class=" col-lg-3 col-md-6 my-2 text-center container-fluid  ">
+            {% include 'models/modelNote.html' %}
+         </div>
+        {% set ns.count = ns.count + 1 %}
+    {% endfor %}
+
+
+    
+{% endif %}
+
+
+{% endblock %}
+ 
+  

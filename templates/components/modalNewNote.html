@@ -1,0 +1,54 @@
+{% block content %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success rounded-pill" 
+  data-toggle="modal" data-bs-target="#noteNewNote" href="#noteNewNote">
+  <h5 class="modal-title" id="exampleModalLabel">+ Nuova Nota</h5>
+</button>
+
+  
+<!-- Modal -->
+<form action="addNewNote/" method="post" id="newNote" enctype="multipart/form-data">
+  <div class="modal top fade text-black-50" id="noteNewNote" tabindex="-1"
+    aria-hidden="true" data-mdb-backdrop="true"
+    data-mdb-keyboard="true" data-backdrop="static" data-keyboard="false">
+
+    <div class="modal-dialog modal-lg w-100 ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title ">Crea una nuova Nota</h5>
+
+        </div>
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label float-left">Titolo:</label>
+            <input type="text" class="form-control" name="title"
+            placeholder="Insert here title" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label float-left">Testo:</label>
+            <textarea form="newNote" name="text" id="text" required="true"
+            autofocus="true"  
+             class="form-control overflow-auto" rows="10"
+             placeholder="Insert here some text"
+             ></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Back</button>
+            <button type="submit" class="btn btn-primary btn-lg">Save</button>
+          </div>
+
+      
+      </div>
+
+      </div>
+    </div>
+  
+  </div>
+
+</form>
+
+{% endblock %}

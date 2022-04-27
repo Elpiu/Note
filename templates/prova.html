@@ -1,0 +1,26 @@
+{% extends '/basicComponent/layout.html' %}
+{% block title %}Index-Elpiu{% endblock %}
+
+
+
+{% if successModel %}
+    {% include 'models/modelSuccessDinamic.html'%}
+{% endif %}
+
+{% block content %}
+
+
+<div class="bg-secondary" id="Home">
+    <div class="container">
+        <div class="row gx-4 justify-content-center text-white">
+
+            <div class=" col-lg-3 col-md-6 my-2 text-center">
+                {% include 'components/modalNewNote.html' %}
+             </div>
+
+            {% include 'components/containerNotes.html' %}
+        </div>
+    </div>
+</div> 
+{% endblock %}
+

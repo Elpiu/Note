@@ -1,0 +1,31 @@
+
+{% block content %}
+
+
+
+<script>
+    $(document).ready(function() {
+  $('#myModalSuccess').modal('show');
+});
+
+</script>
+
+
+<!-- Modal -->
+<div class="modal top fade " id="myModalSuccess" tabindex="-1" 
+aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+	<div class="modal-dialog">
+	  <div class="modal-content ">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">{{ successModel.title }}</h5>
+		</div>
+		<div class="modal-body">{{ successModel.text }}</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-primary" onclick="$('#myModalSuccess').modal('hide');"
+		  data-mdb-dismiss="modal">{{ successModel.confirm }}</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+{% endblock %}
